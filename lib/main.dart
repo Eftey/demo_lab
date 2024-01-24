@@ -1,4 +1,4 @@
-import 'package:demo/src/features/screens/welcome/welcome_screen.dart';
+import 'package:demo/src/features/authentication/screens/welcome/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());

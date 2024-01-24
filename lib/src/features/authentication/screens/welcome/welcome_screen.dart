@@ -1,6 +1,6 @@
-import 'package:demo/src/constants/image_strings.dart';
-import 'package:demo/src/constants/text_strings_ben.dart';
-import 'package:demo/src/constants/text_strings_en.dart';
+import 'package:demo/src/common_widgets/ads/ads_footer.dart';
+import 'package:demo/src/common_widgets/main_logo/main_logo.dart';
+import 'package:demo/src/features/authentication/screens/welcome/notice.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -11,7 +11,7 @@ class WelcomeScreen extends StatelessWidget {
     //Variables
     final screenSize = MediaQuery.of(context).size;
 
-    final cHeight = 0.37, cWidth = 0.8;
+    final cHeight = 0.4, cWidth = 0.8;
     return Scaffold(
       //Appbar
       appBar: AppBar(
@@ -37,83 +37,16 @@ class WelcomeScreen extends StatelessWidget {
           children: [
             const SizedBox(height: 20),
             //Logo
-            Image(
-              image: AssetImage(cILogoLightLogo),
-            ),
-
+            MainLogo(),
             const SizedBox(height: 20),
 
             //Texts
-            Container(
-              padding: EdgeInsets.all(14.0),
-              height: screenSize.height * cHeight,
-              width: screenSize.width * cWidth,
-              decoration: BoxDecoration(
-                color: Color(0xffD9D9D9),
-                borderRadius: BorderRadius.circular(30.0),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  //Texts
-                  Text(cTNoticeTitle),
-                  const SizedBox(height: 10),
-                  //TODO: Fix overflow
-                  Flexible(
-                    child: Text(
-                      cTNoticeSubTitle,
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-
-                  //Buttons
-                  const SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ElevatedButton(
-                        onPressed: () {},
-                        child: Text(cTNoticeBtnYes),
-                        style: ElevatedButton.styleFrom(
-                          primary: Color(0xff01740C),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 20),
-                      ElevatedButton(
-                        onPressed: () {},
-                        child: Text(cTNoticeBtnNo),
-                        style: ElevatedButton.styleFrom(
-                          primary: Color(0xff740101),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            ),
-
+            NoticeSection(
+                screenSize: screenSize, cHeight: cHeight, cWidth: cWidth),
             const SizedBox(height: 20),
-            //Sponsors
-            //Text
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(cTSponsored),
 
-                //Image
-                Image(
-                  image: AssetImage(cIAdsBanglaLink),
-                  height: screenSize.height * 0.19,
-                  width: screenSize.width * 0.19,
-                ),
-              ],
-            ),
+            //Sponsors
+            AdsFooter(screenSize: screenSize),
           ],
         ),
       ),
