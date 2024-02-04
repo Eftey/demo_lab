@@ -5,13 +5,11 @@ import 'package:flutter/material.dart';
 class AdsFooter extends StatelessWidget {
   const AdsFooter({
     super.key,
-    required this.screenSize,
   });
-
-  final Size screenSize;
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [

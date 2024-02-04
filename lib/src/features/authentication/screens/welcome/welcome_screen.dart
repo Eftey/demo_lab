@@ -1,5 +1,7 @@
-import 'package:demo/src/common_widgets/ads/ads_footer.dart';
 import 'package:demo/src/common_widgets/main_logo/main_logo.dart';
+import 'package:demo/src/constants/image_strings.dart';
+import 'package:demo/src/constants/sizes.dart';
+import 'package:demo/src/constants/text_strings_en.dart';
 import 'package:demo/src/features/authentication/screens/welcome/notice.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +13,6 @@ class WelcomeScreen extends StatelessWidget {
     //Variables
     final screenSize = MediaQuery.of(context).size;
 
-    final cHeight = 0.4, cWidth = 0.8;
     return Scaffold(
       //Appbar
       appBar: AppBar(
@@ -41,12 +42,24 @@ class WelcomeScreen extends StatelessWidget {
             const SizedBox(height: 20),
 
             //Texts
-            NoticeSection(
-                screenSize: screenSize, cHeight: cHeight, cWidth: cWidth),
+            NoticeSection(),
             const SizedBox(height: 20),
 
             //Sponsors
-            AdsFooter(screenSize: screenSize),
+            //AdsFooter(),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(cTSponsored),
+
+                //Image
+                Image(
+                  image: AssetImage(cIAdsBanglaLink),
+                  height: screenSize.height * 0.17,
+                  width: screenSize.width * 0.17,
+                ),
+              ],
+            )
           ],
         ),
       ),

@@ -1,20 +1,15 @@
+import 'package:demo/src/constants/sizes.dart';
 import 'package:demo/src/constants/text_strings_ben.dart';
 import 'package:flutter/material.dart';
 
 class NoticeSection extends StatelessWidget {
   const NoticeSection({
     super.key,
-    required this.screenSize,
-    required this.cHeight,
-    required this.cWidth,
   });
-
-  final Size screenSize;
-  final double cHeight;
-  final double cWidth;
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
     return Container(
       padding: EdgeInsets.all(14.0),
       height: screenSize.height * cHeight,
@@ -31,10 +26,14 @@ class NoticeSection extends StatelessWidget {
             Text(cTNoticeTitle),
             const SizedBox(height: 10),
             //TODO: Fix overflow
-            Flexible(
+            Expanded(
               child: Text(
                 cTNoticeSubTitle,
                 textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: 13.0,
+                    height: 1.49 //You can set your custom height here
+                    ),
               ),
             ),
 
