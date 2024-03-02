@@ -2,12 +2,10 @@ import 'package:demo/src/common_widgets/main_logo/main_logo.dart';
 import 'package:demo/src/constants/image_strings.dart';
 import 'package:demo/src/constants/text_strings_ben.dart';
 import 'package:demo/src/constants/text_strings_en.dart';
-import 'package:demo/src/features/authentication/screens/signup_screen/signup_form.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-class AuthenticationScreen extends StatelessWidget {
-  const AuthenticationScreen({Key? key}) : super(key: key);
+class OTPConfirmationScreen extends StatelessWidget {
+  const OTPConfirmationScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +46,7 @@ class AuthenticationScreen extends StatelessWidget {
                     child: Container(
                       child: Column(children: [
                         ElevatedButton(
-                          onPressed: () => Get.off(SignupFormWidget()),
+                          onPressed: () {},
                           child: Text(cRegistration),
                           style: ElevatedButton.styleFrom(
                             shape: StadiumBorder(),
